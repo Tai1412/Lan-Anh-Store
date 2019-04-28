@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate  {
           resolve(true);
         } 
         else {//if not ,navigate back to the login until sign in
-          this.router.navigate(['/register']);
+          this.router.navigate(['/login']);
           this.showToast("Please sign in first");
           reject('No Logged in');
         }
