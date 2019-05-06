@@ -13,6 +13,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../products/products.module#ProductsPageModule'
+          },
+          {
+            path:':id',
+            loadChildren:'../products/product-detail/product-detail.module#ProductDetailPageModule'
           }
         ]
       },

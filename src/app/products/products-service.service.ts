@@ -13,10 +13,14 @@ export class ProductsServiceService {
   getProducts()
   {
     return new Promise<any>((resolve, reject) => {
-      this.afs.collection('products').snapshotChanges()
+      this.afs.collection('products',sort=>sort.orderBy("title","asc")).snapshotChanges()
       .subscribe(snapshots => {
         resolve(snapshots);
       })
     });
+  }
+
+  getProductDetail(productId: string) {
+    return this.afs.collection('products').doc(productId).valueChanges();
   }
 }
