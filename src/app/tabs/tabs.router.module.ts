@@ -8,18 +8,31 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'products',
+      path: 'products',
+      children: [
+        {
+          path: '',
+          loadChildren: '../products/products.module#ProductsPageModule'
+        },
+        {
+          path:':id',
+          loadChildren:'../products/product-detail/product-detail.module#ProductDetailPageModule'
+        }
+      ]
+    },
+    {
+      path: 'foods-recipe',
         children: [
           {
             path: '',
-            loadChildren: '../products/products.module#ProductsPageModule'
+            loadChildren: '../foods-recipe/foods-recipe.module#FoodsRecipePageModule'
           },
           {
             path:':id',
-            loadChildren:'../products/product-detail/product-detail.module#ProductDetailPageModule'
+            loadChildren:'../foods-recipe/foods-recipe-detail/foods-recipe-detail.module#FoodsRecipeDetailPageModule'
           }
         ]
-      },
+    },
       {
         path: '',
         redirectTo: '/tabs/products',

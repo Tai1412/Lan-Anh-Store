@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Foods Recipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list-header>
+        <ion-label>Recipes List</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let foodRecipe of foodRecipes" routerLink="/tabs/foods-recipe/{{foodRecipe.payload.doc.id}}"> 
+          <ion-avatar slot="start">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <ion-label>{{foodRecipe.payload.doc.data().title}}<br/>{{foodRecipe.payload.doc.data().content}}
+            <br/>{{foodRecipe.payload.doc.data().time}}
+          </ion-label>
+      </ion-item>
+</ion-content>
