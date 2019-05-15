@@ -33,6 +33,15 @@ const routes: Routes = [
           }
         ]
     },
+    {
+      path: 'about-us',
+        children: [
+          {
+            path: '',
+            loadChildren: '../about-us/about-us.module#AboutUsPageModule'
+          },
+        ]
+    },
       {
         path: '',
         redirectTo: '/tabs/products',

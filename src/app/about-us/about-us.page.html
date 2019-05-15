@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>About Us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let sInformation of storeInformation">
+    <ion-slides autoplay="1000" loop="true" speed="500" pager="true">
+        <ion-slide >
+            <ion-img [src]="sInformation.images" alt="this is store image"></ion-img>
+        </ion-slide>
+    </ion-slides>
+    <h1>
+      Our Store
+    </h1>
+    <p>{{sInformation.content}}</p>
+    <h1>
+      Our Address
+    </h1>
+    <ion-img [src]="sInformation.addressImg" alt="this is address image" (click)="searchAddress()"></ion-img>
+    <a (click)="searchAddress()"><h4>{{sInformation.address}}</h4></a>
+    <!-- <p>{{image.content}}</p> -->
+</ion-content>
