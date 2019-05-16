@@ -9,19 +9,24 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class AboutUsPage implements OnInit {
   storeInformation:any=[];
+  storeInformation1:any=[];
   array=[
     1,2,3
   ]
+  store='image';
   constructor(
     private afs:AngularFirestore,
     private inAppSearch:InAppBrowser,
   ) { }
 
   ngOnInit() {
-    this.afs.collection("aboutUs").valueChanges().subscribe(data=>{
+    this.afs.collection("storeImage").valueChanges().subscribe(data=>{
       this.storeInformation=data;
       console.log(this.storeInformation);
       console.log(this.array);
+    })
+    this.afs.collection("aboutUs").valueChanges().subscribe(data=>{
+      this.storeInformation1=data;
     })
   }
   searchAddress(){

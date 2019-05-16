@@ -4,20 +4,43 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngFor="let sInformation of storeInformation">
-    <ion-slides autoplay="1000" loop="true" speed="500" pager="true">
-        <ion-slide >
-            <ion-img [src]="sInformation.images" alt="this is store image"></ion-img>
-        </ion-slide>
-    </ion-slides>
-    <h1>
-      Our Store
-    </h1>
-    <p>{{sInformation.content}}</p>
-    <h1>
-      Our Address
-    </h1>
-    <ion-img [src]="sInformation.addressImg" alt="this is address image" (click)="searchAddress()"></ion-img>
-    <a (click)="searchAddress()"><h4>{{sInformation.address}}</h4></a>
-    <!-- <p>{{image.content}}</p> -->
+<ion-content>
+  <ion-segment [(ngModel)]="store">
+    <ion-segment-button value="image" checked>
+      <ion-label>Gallery</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="content">
+      <ion-label>About Us</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="store">
+    <ion-grid *ngSwitchCase="'image'">
+      <ion-row>
+        <ion-col size="6" sizeMd="4" sizeLg="2" *ngFor="let image of storeInformation">
+          <div class="container">
+            <ion-img [src]="image.image" alt="this is store image"></ion-img>
+
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngSwitchCase="'content'">
+      <div *ngFor="let aboutUs of storeInformation1">
+        <h1>
+          Our Store
+        </h1>
+        <p>{{aboutUs.content}}</p>
+        <h1>
+          Our Address
+        </h1>
+        <ion-img [src]="aboutUs.addressImg" alt="this is address image" (click)="searchAddress()"></ion-img>
+        <a (click)="searchAddress()">
+          <h4>{{aboutUs.address}}</h4>
+        </a>
+      </div>
+    </div>
+  </div>
+
 </ion-content>
