@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>contact-us</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <div style="text-align: center;">
+    <ion-row>
+      <ion-col (click)="callMe()">
+        Call Us
+      </ion-col>
+      <ion-col (click)="SMS()">
+        SMS
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col (click)="facebook()">
+        FaceBook
+      </ion-col>
+      <ion-col (click)="sendEmail()">
+        E-Mail
+      </ion-col>
+    </ion-row>
+  </div>
+
+  </ion-grid>
+</ion-content>

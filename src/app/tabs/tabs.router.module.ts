@@ -42,6 +42,24 @@ const routes: Routes = [
           },
         ]
     },
+    {
+      path: 'contact-us',
+        children: [
+          {
+            path: '',
+            loadChildren: '../contact-us/contact-us.module#ContactUsPageModule'
+          },
+        ]
+    },
+    {
+      path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: '../profile/profile.module#ProfilePageModule'
+          },
+        ]
+    },
       {
         path: '',
         redirectTo: '/tabs/products',

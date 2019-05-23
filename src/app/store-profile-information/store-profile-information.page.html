@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" [hidden]="!profile_form.dirty || !profile_form.valid">
+      <ion-button ion-button (click)="saveUserProfiles(profile_form.value)">
+        SAVE
+      </ion-button>
+    </ion-buttons>
+      <ion-title>store-profile-information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="profile_form">
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>Your Name</ion-label>
+          <ion-input type="text" formControlName="name" clearInput></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngFor="let validation of validation_messages.name">
+            <div class="error-message" *ngIf="profile_form.get('name').hasError(validation.type) && (profile_form.get('name').dirty || profile_form.get('name').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label stacked>Your email</ion-label>
+          <ion-input type="text" formControlName="email" clearInput></ion-input>
+        </ion-item>
+        <div>
+          <ng-container *ngFor="let validation of validation_messages.email">
+            <div class="error-message" *ngIf="profile_form.get('email').hasError(validation.type) && (profile_form.get('email').dirty || profile_form.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+            <ion-label stacked>Your phone</ion-label>
+            <ion-input type="text" formControlName="phoneNumber" clearInput></ion-input>
+          </ion-item>
+          <div>
+              <ng-container *ngFor="let validation of validation_messages.phoneNumber">
+                <div class="error-message" *ngIf="profile_form.get('phoneNumber').hasError(validation.type) && (profile_form.get('phoneNumber').dirty || profile_form.get('phoneNumber').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+          <ion-item>
+              <ion-label stacked>Your age</ion-label>
+              <ion-input type="text" formControlName="age" clearInput></ion-input>
+            </ion-item>
+      </ion-list>
+    </form>
+</ion-content>

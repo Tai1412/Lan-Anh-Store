@@ -46,7 +46,7 @@ export class RegisterPage implements OnInit {
     .then(res => {
       this.fAuthService.emailLogin(userValue)
       .then(res => {
-        this.router.navigate(['/tabs']); 
+        this.router.navigate(['/store-profile-information']); 
         this.showToast("Register Successfully");
         this.signupForm.reset();
       }, error => this.errorMessage = error.message)

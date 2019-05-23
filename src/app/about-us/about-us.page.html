@@ -33,12 +33,17 @@
         </h1>
         <p>{{aboutUs.content}}</p>
         <h1>
+            Our Opening Time
+          </h1>
+          <p>{{aboutUs.openTime}}</p>
+        <h1>
           Our Address
         </h1>
         <ion-img [src]="aboutUs.addressImg" alt="this is address image" (click)="searchAddress()"></ion-img>
         <a (click)="searchAddress()">
           <h4>{{aboutUs.address}}</h4>
         </a>
+        <p>ABN: {{aboutUs.ABN}}</p>
       </div>
     </div>
   </div>

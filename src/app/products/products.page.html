@@ -10,8 +10,8 @@
         </ion-list-header>
         <ion-item *ngFor="let product of productsList" routerLink="/tabs/products/{{product.payload.doc.id}}"> 
             <ion-avatar slot="start">
-              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              <img src="{{product.payload.doc.data().image}}">
             </ion-avatar>
-            <ion-label>{{product.payload.doc.data().title}}<br/>{{product.payload.doc.data().content}}</ion-label>
+            <ion-label><b>{{product.payload.doc.data().title}}</b><br/>{{product.payload.doc.data().content}}</ion-label>
         </ion-item>
   </ion-content>

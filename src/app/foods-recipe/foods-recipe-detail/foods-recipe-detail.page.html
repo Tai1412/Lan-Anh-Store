@@ -1,17 +1,23 @@
 <ion-header>
-    <ion-toolbar>
+    <ion-toolbar >
         <ion-buttons slot="start">
             <ion-back-button  defaultHref="tabs/foods-recipe"></ion-back-button>
           </ion-buttons>
-        <ion-title>{{foodRecipesDetail.title}}</ion-title>
+        <h5 style="margin-left: 30px;">{{foodRecipesDetail.title}}</h5>
     </ion-toolbar>
   </ion-header>
   
   <ion-content>
-      <h3> Time </h3>
-      <p>{{foodRecipesDetail.time}}</p>
-      <h3> Content </h3>
-      <p>{{foodRecipesDetail.content}}</p>
+    <img src="{{foodRecipesDetail.image}}" style="width:100%;height:300px;" alt="food recipe image"> 
+      <h3> Time For This Recipe: {{foodRecipesDetail.time}} </h3>
+      <h3>Prepare List</h3>
+      <ul *ngFor="let prepare of foodRecipesDetail.prepare">
+            <li>{{prepare}}</li>
+      </ul>
+      <h3> Step To Cook </h3>
+      <ul *ngFor="let cookStep of foodRecipesDetail.cookStep">
+            <li>{{cookStep}}</li>
+      </ul>
       
     
     
