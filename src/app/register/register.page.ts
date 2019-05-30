@@ -3,6 +3,7 @@ import {ToastController} from '@ionic/angular';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import {AuthenticationService} from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 
 
@@ -30,6 +31,7 @@ export class RegisterPage implements OnInit {
   constructor(
     public fAuthService: AuthenticationService,
     public router:Router,
+    private inAppSearch:InAppBrowser,
     public toastCtrl:ToastController
   )
    { }
@@ -60,5 +62,7 @@ export class RegisterPage implements OnInit {
     });
     toast.present();
   }
-
+ accessPrivacyPolicy(){
+   this.inAppSearch.create("https://www.freeprivacypolicy.com/privacy/view/a7d1222d349a7f398f72657081b67b14");
+ }
 }

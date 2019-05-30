@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-profile',
@@ -35,6 +36,7 @@ export class ProfilePage implements OnInit {
   constructor(
     public afAuthService: AuthenticationService,
     public router: Router,
+    private inAppSearch:InAppBrowser,
     public toastCtrl: ToastController,
   ) { 
   }
@@ -108,5 +110,8 @@ export class ProfilePage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+  accessPrivacyPolicy(){
+    this.inAppSearch.create("https://www.freeprivacypolicy.com/privacy/view/a7d1222d349a7f398f72657081b67b14");
   }
 }
