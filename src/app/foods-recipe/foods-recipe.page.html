@@ -1,19 +1,30 @@
 <ion-header>
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-title>Foods Recipe</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list-header>
-        <ion-label>Recipes List</ion-label>
-      </ion-list-header>
-      <ion-item *ngFor="let foodRecipe of foodRecipes" routerLink="/tabs/foods-recipe/{{foodRecipe.payload.doc.id}}"> 
-          <ion-avatar slot="start">
-            <img src="{{foodRecipe.payload.doc.data().image}}">
-          </ion-avatar>
-          <ion-label style="white-space: normal !important"><b>{{foodRecipe.payload.doc.data().title}}</b><br/>{{foodRecipe.payload.doc.data().content}}
-            <br/>{{foodRecipe.payload.doc.data().time}}
-          </ion-label>
-      </ion-item>
+  <ion-searchbar (ionInput)="filterRecipe($event)" placeholder="Search By Recipe Title" animated></ion-searchbar>
+  <ion-list-header>
+    <ion-label>Recipes List</ion-label>
+  </ion-list-header>
+  <div *ngIf="!foodRecipes.length==0; else noRecipe">
+    <ion-item *ngFor="let foodRecipe of foodRecipes" routerLink="/tabs/foods-recipe/{{foodRecipe.payload.doc.id}}">
+      <ion-avatar slot="start">
+        <img src="{{foodRecipe.payload.doc.data().image}}">
+      </ion-avatar>
+      <ion-label style="white-space: normal !important"><b>{{foodRecipe.payload.doc.data().title}}</b><br />{{foodRecipe.payload.doc.data().content}}
+        <br />{{foodRecipe.payload.doc.data().time}}
+      </ion-label>
+    </ion-item>
+  </div>
+  <ng-template #noRecipe>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img src="https://www.onlygfx.com/wp-content/uploads/2018/04/no-stamp-2-1024x1024.png">
+      </ion-avatar>
+      <ion-label> No Recipe Match</ion-label>
+    </ion-item>
+  </ng-template>
 </ion-content>

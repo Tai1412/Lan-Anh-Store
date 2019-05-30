@@ -1,29 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>contact-us</ion-title>
+    <ion-title>Contact Us</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <div style="text-align: center;">
-    <ion-row>
-      <ion-col (click)="callMe()">
-        Call Us
-      </ion-col>
-      <ion-col (click)="SMS()">
-        SMS
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col (click)="facebook()">
-        FaceBook
-      </ion-col>
-      <ion-col (click)="sendEmail()">
-        E-Mail
-      </ion-col>
-    </ion-row>
-  </div>
-
-  </ion-grid>
+    <ion-item>
+        <ion-avatar slot="start">
+          <img src="https://firebasestorage.googleapis.com/v0/b/lananhstore-a9c21.appspot.com/o/Gallery%2Freceived_439392090169340.jpeg?alt=media&token=c2c3f77c-ce92-496a-b6ea-e3f615f84f2e">
+        </ion-avatar>
+        <h4>Lan Anh Store <br>
+        Version 1.0</h4>
+      </ion-item>
+    <ion-card>
+        <ion-item>
+          <ion-icon name="call" color="success" slot="start"></ion-icon>
+          <ion-label>Contact Us By Phone</ion-label>
+          <ion-button fill="outline" color="success" slot="end" (click)="callMe()">Call Us</ion-button>
+        </ion-item>
+      
+        <ion-card-content>
+          Your Call Will Be Reply In Our Working Hour.
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-item>
+            <ion-icon name="text" color="success" slot="start"></ion-icon>
+            <ion-label>Contact Us By SMS</ion-label>
+            <ion-button fill="outline" color="success" slot="end" (click)="SMS()">SMS</ion-button>
+          </ion-item>
+        
+          <ion-card-content>
+            You Can Leave Us Your Value Feedback By SMS.
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-item>
+              <ion-icon name="logo-facebook" color="primary" slot="start"></ion-icon>
+              <ion-label>Message By FaceBook</ion-label>
+              <ion-button fill="outline" color="primary" slot="end" (click)="facebook()">FaceBook</ion-button>
+            </ion-item>
+          
+            <ion-card-content>
+              Our Store Page Always Welcome For Your Feedback. Feel Free To Contact Us
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+              <ion-item>
+                <ion-icon name="mail" color="danger" slot="start"></ion-icon>
+                <ion-label>Send Us Email</ion-label>
+                <ion-button fill="outline" color="danger" slot="end" (click)="sendEmail()">Email</ion-button>
+              </ion-item>
+            
+              <ion-card-content>
+                Or You Can Send Us By Email
+              </ion-card-content>
+            </ion-card>
 </ion-content>

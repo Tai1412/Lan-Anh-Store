@@ -1,17 +1,28 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Products</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-      <ion-list-header>
-          <ion-label>Products List Information</ion-label>
-        </ion-list-header>
-        <ion-item *ngFor="let product of productsList" routerLink="/tabs/products/{{product.payload.doc.id}}"> 
-            <ion-avatar slot="start">
-              <img src="{{product.payload.doc.data().image}}">
-            </ion-avatar>
-            <ion-label><b>{{product.payload.doc.data().title}}</b><br/>{{product.payload.doc.data().content}}</ion-label>
-        </ion-item>
-  </ion-content>
+  <ion-toolbar>
+    <ion-title>Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="filterProduct($event)" placeholder="Search By Title" animated></ion-searchbar>
+  <ion-list-header>
+    <ion-label>Products List Information</ion-label>
+  </ion-list-header>
+  <div *ngIf="!productsList.length==0; else noProduct">
+    <ion-item *ngFor="let product of productsList" routerLink="/tabs/products/{{product.payload.doc.id}}">
+      <ion-avatar slot="start">
+        <img src="{{product.payload.doc.data().image}}">
+      </ion-avatar>
+      <ion-label><b>{{product.payload.doc.data().title}}</b><br />{{product.payload.doc.data().content}}</ion-label>
+    </ion-item>
+  </div>
+  <ng-template #noProduct>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img src="https://www.onlygfx.com/wp-content/uploads/2018/04/no-stamp-2-1024x1024.png">
+      </ion-avatar>
+      <ion-label> No Product Match</ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>

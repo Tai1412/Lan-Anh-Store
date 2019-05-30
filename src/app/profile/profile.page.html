@@ -10,6 +10,10 @@
   </ion-header>
 
 <ion-content>
+  <ion-card>
+    <ion-card-header color="primary" style="text-align: center;" >
+        <ion-icon name="contact" size="large"></ion-icon>
+      </ion-card-header>
     <form [formGroup]="profile_form">
         <ion-list>
           <ion-item>
@@ -51,6 +55,7 @@
               </ion-item>
         </ion-list>
       </form>
+    </ion-card>
     <ion-button ion-button color="primary" block icon-start (click)="logout()">
         <ion-icon name="log-out"></ion-icon>
         Log out
