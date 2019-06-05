@@ -19,8 +19,7 @@
       <ion-row>
         <ion-col size="6" sizeMd="4" sizeLg="2" *ngFor="let image of storeInformation">
           <div class="container">
-            <ion-img [src]="image.image" alt="this is store image"></ion-img>
-
+            <img [src]="image.image" alt="this is store image" style="height: 200px; width: 200px;">
           </div>
         </ion-col>
       </ion-row>

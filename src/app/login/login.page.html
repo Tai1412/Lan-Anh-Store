@@ -1,5 +1,9 @@
 <ion-content>
-  <h1>Lan Anh Store Login</h1>
+  <ion-card>
+      <ion-card-header color="primary" style="text-align: center;" >
+          <h1>Lan Anh Store Login</h1>       
+         </ion-card-header>
+  
   <div *ngIf="check">
     <form [formGroup]="login" (submit)="emailLogin(login.value)">
       <ion-list class="form-list">
@@ -12,10 +16,15 @@
           <ion-input type="password" formControlName="password" clearInput></ion-input>
         </ion-item>
 
-        <ion-button ion-button block color="primary" type="submit" [disabled]="!login.valid">Login</ion-button>
+        <ion-button ion-button expand="block" color="primary" type="submit" [disabled]="!login.valid">Login</ion-button>
       </ion-list>
     </form>
+    <ion-button ion-button expand="block" color="danger" round icon-start item-start [routerLink]="'/register/'" routerDirection="forward">
+      <ion-icon name='person-add'></ion-icon>
+      Register
+    </ion-button>
   </div>
+</ion-card>
   <div *ngIf="!check">
     <ion-card>
       <ion-card-header>
@@ -40,8 +49,4 @@
     </ion-card>
   </div>
   <label class="error-message">{{errorMessage}}</label>
-  <ion-button ion-button outline color="danger" round icon-start item-start [routerLink]="'/register/'" routerDirection="forward">
-    <ion-icon name='person-add'></ion-icon>
-    Register
-  </ion-button>
 </ion-content>
