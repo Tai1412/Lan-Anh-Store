@@ -16,9 +16,14 @@ export class AuthGuard implements CanActivate  {
   ){}
   canActivate(): boolean | Observable<boolean> | Promise<boolean> {
     return new Promise((resolve, reject) => {
-      this.afAuth.auth.onAuthStateChanged(user => { //check user state persist
+      this.afAuth.authState.subscribe(user => { //check user state persist
         if (user&&user.emailVerified) {//if current user, allow to go to the other page
           resolve(true);
+        }
+        else if(user&&!user.emailVerified)
+        {
+          this.router.navigate(['/login']);
+          this.showToast("Please Verify Your Account");
         } 
         else {//if not ,navigate back to the login until sign in
           this.router.navigate(['/login']);

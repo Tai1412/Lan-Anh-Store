@@ -26,15 +26,8 @@
         </div>
         <ion-item>
           <ion-label stacked>Your email</ion-label>
-          <ion-input type="text" formControlName="email" clearInput></ion-input>
+          <ion-input type="text" formControlName="email" disabled></ion-input>
         </ion-item>
-        <div>
-          <ng-container *ngFor="let validation of validation_messages.email">
-            <div class="error-message" *ngIf="profile_form.get('email').hasError(validation.type) && (profile_form.get('email').dirty || profile_form.get('email').touched)">
-              {{ validation.message }}
-            </div>
-          </ng-container>
-        </div>
         <ion-item>
             <ion-label stacked>Your phone</ion-label>
             <ion-input type="text" formControlName="phoneNumber" clearInput></ion-input>
