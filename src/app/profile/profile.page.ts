@@ -106,6 +106,6 @@ export class ProfilePage implements OnInit {
     toast.present();
   }
   accessPrivacyPolicy(){
-    this.inAppSearch.create("https://www.freeprivacypolicy.com/privacy/view/a7d1222d349a7f398f72657081b67b14");
+    this.inAppSearch.create("https://www.freeprivacypolicy.com/privacy/view/a7d1222d349a7f398f72657081b67b14","_system");
   }
 }

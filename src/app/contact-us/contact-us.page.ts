@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SMS } from '@ionic-native/sms/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact-us',
@@ -14,13 +15,18 @@ export class ContactUsPage implements OnInit {
     private sms:SMS,
     private inAppSearch:InAppBrowser,
     private Email:EmailComposer,
+    private toastCtrl:ToastController
+
   ) { }
 
   ngOnInit() {
   }
 
   SMS(){
-    this.sms.send(this.phoneNumber,'');
+    this.sms.send(this.phoneNumber,'').then((res)=>
+    {
+      this.showToast("Your message has been sent");
+    });
   }
 
   callMe(){
@@ -37,7 +43,19 @@ export class ContactUsPage implements OnInit {
       body:'Give us your value feedback here or your question, but firtly need to delete me',
       isHtml:true,
     }
-    this.Email.open(email);
+    this.Email.open(email).then((res)=>
+    {
+     this.showToast("Your mail has been sent") 
+    })
+    .catch((err)=>{
+      this.showToast("cancle mail")
+    });
   }
-
+  async showToast(message) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
 }
